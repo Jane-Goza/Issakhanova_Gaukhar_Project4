@@ -1,0 +1,54 @@
+/* mobile rules Always go first */
+/* 1em = 16px; */
+
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden { display: none; }
+
+html, body { height: 100vh; max-width: 1140px; } /* vh means ViewportHeight - a dynamic measurement that refers to the visible area (viewport) of a browser window*/
+
+body {
+  /*color: white;*/
+  font-size: 16px;
+  font-family: arial, helvetica, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main > div {
+  flex: 1;
+  border: thin solid black;
+  padding: 1em;
+}
+
+.box > span {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 0.5em;
+  background-color: blue;
+  color: white;
+}
+
+.box:nth-of-type(1) { background-color: pink; }
+.box:nth-of-type(2)  { background-color: red; }
+.box:nth-of-type(3) > span, .box:nth-of-type(4) > span { display: none; }
+
+@media screen and (min-width: 641px) {
+  main { flex-direction: row; }
+.box:nth-of-type(1)  { background-color: blue; }
+.box:nth-of-type(2)  { background-color: purple; }
+.box:nth-of-type(3)  { background-color: grey; }
+.box:nth-of-type(4)  { background-color: brown; }
+
+.box:nth-of-type(3) > span, .box:nth-of-type(4) > span { display: inline-block; }
+  /* turn the hidden items back on, change colours accordingly */
+}
